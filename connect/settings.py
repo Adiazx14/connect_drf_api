@@ -152,3 +152,9 @@ AWS_ACCESS_KEY_ID = os.environ['BUCKET_KEY']
 AWS_SECRET_ACCESS_KEY = os.environ['BUCKET_ACCESS']
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_DEFAULT_ACL = None
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
