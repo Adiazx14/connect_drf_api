@@ -12,6 +12,7 @@ class Region(models.Model):
 
 class Package(models.Model):
     title = models.CharField(max_length=200)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
     description = models.TextField(blank=True)
     destination = models.TextField()
     duration = models.CharField(max_length=200)
@@ -20,4 +21,5 @@ class Package(models.Model):
     price = models.FloatField()
     image = models.ImageField()
 
-    
+    def __str__(self):
+        return self.title
