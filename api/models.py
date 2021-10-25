@@ -23,3 +23,10 @@ class Package(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True, max_length=300)
+
+    def __str__(self):
+        return self.email

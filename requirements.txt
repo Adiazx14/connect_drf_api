@@ -2,6 +2,7 @@ asgiref==3.4.1
 boto3==1.18.64
 botocore==1.21.64
 Django==3.2.8
+django-cors-headers==3.10.0
 django-storages==1.12.2
 djangorestframework==3.12.4
 jmespath==0.10.0

@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
-from .models import Package, Region
-from .serializers import PackageSerializer, RegionSerializer
+from .models import Package, Region, Subscriber
+from .serializers import PackageSerializer, RegionSerializer, SubscriberSerializer
 # Create your views here.
 
 class RegionView(APIView):
@@ -20,9 +20,24 @@ class RegionDetail(APIView):
         
         return Response(serializer.data)
 
+
+
 class PackageView(APIView):
     def get(self, request):
         regions = Package.objects.all()
         serializer = PackageSerializer(regions, many=True)
         return Response(serializer.data)
 
+class SubscriberView(APIView):
+
+    def get(self, request):
+        subscriber = Subscriber.objects.all()
+        serializer = SubscriberSerializer(subscriber, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = SubscriberSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else: return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

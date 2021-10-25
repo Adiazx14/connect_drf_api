@@ -1,5 +1,5 @@
 from rest_framework import fields, serializers
-from .models import Package, Region
+from .models import Package, Region, Subscriber
 
 class RegionSerializer(serializers.ModelSerializer):
     packages = serializers.SerializerMethodField(read_only=True)
@@ -18,3 +18,8 @@ class PackageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Package
         fields = "__all__"
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
+        fields = '__all__'

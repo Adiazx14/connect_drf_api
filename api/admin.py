@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 
-from .models import Package, Region
+from .models import Package, Region, Subscriber
 
 class PackageInline(admin.TabularInline):
     model = Package
@@ -13,3 +13,4 @@ class RegionAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Region, RegionAdmin)
 admin.site.register(Package)
+admin.site.register(Subscriber)
