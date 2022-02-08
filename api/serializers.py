@@ -3,7 +3,7 @@ from .models import Package, Region, Subscriber
 
 class RegionSerializer(serializers.ModelSerializer):
     packages = serializers.SerializerMethodField(read_only=True)
-
+    
     class Meta:
         model = Region
         fields = "__all__"
